@@ -12,14 +12,14 @@
 //3.[LinkIt One 教學] 連接LinkIt ONE 到MediaTek Cloud Sandbox
 //  http://blog.cavedu.com/技術交流/linkit-one-教學-連接-linkit-one-到-mediatek-cloud-sandbox/
 /*============================Project Author=============================*/
-//Building Author: Jeff Ku 
+//Building Author: Jeffery Ku 
 //Building Date: Jun/16 2016
 //
 #include <Wire.h>
 #include <Adafruit_BMP085.h>
 #include <Ethernet.h>
-#define DEVICE_KEY "iCGTJyygtA43kSlz"   //MCS Device Key
-#define DEVICE_ID "D1WPYX1T"   //MCS Device ID 
+#define DEVICE_KEY "iCGTJyygtA43k***"   //MCS Device Key
+#define DEVICE_ID "D1WPY***"   //MCS Device ID 
 #define SITE_URL "api.mediatek.com"   //API
 
 /*************************************************** 
@@ -46,12 +46,11 @@
 // XCLR is a reset pin, also not used here
 
 //Define mac, ip, dnServer, gateway, subnet
-  //byte mac[]= { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-  IPAddress ip(192,168,0,105);
+  IPAddress ip(*,*,*,*);  //Your ip address(內網ip位置)
   byte mac[]={0x00, 0x1C, 0x42, 0x4B, 0x08, 0xFB};
   IPAddress dnServer(8,8,8,8);
-  IPAddress gateway(192,168,0,99);
-  IPAddress subnet(255,255,255,0);
+  IPAddress gateway(*,*,*,*);  //Your router address（路由器ip位置）
+  IPAddress subnet(*,*,*,*);  //Your subnet address(子網路遮罩)
   
 //Declaration for EthernetClient class Variable 
   EthernetClient client;
@@ -187,7 +186,7 @@ void sendData(long value, String channelId)
 //Client posts DEVICE_ID to MCS.
 //Replace ******** to be your DEVICE_ID 
 //(Imporatant) Please do not add excessive spacescontent.
-  client.println("POST /mcs/v2/devices/D1WPYX1T/datapoints.csv HTTP/1.1");
+  client.println("POST /mcs/v2/devices/D1WPY***/datapoints.csv HTTP/1.1");
 
 //The below syntax is an alternative method to execute posting data to MCS. But, sometimes it is failed to be. 
 //===========================================
