@@ -169,7 +169,6 @@ void checkPressure()
 
 void clientPrintPressure()
 {   
-    Btemperature = bmp.readTemperature();
     Bpressure = bmp.readPressure();  
     sendData(Bpressure, "Pressure");
 }
